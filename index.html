@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <link rel="stylesheet" href="./css/sample.css" type="text/css">
+    <script type="text/javascript" src="output.js"></script>
+    <div class=main>
+    <title>Minecraft 拾得物制限プレイ</title>
+    <meta charset="UTF-8">
+    <h1 align="center">
+      <font face="Impact" size="25">Minecraft 拾得物制限プレイ</font>
+    </h1>
+    <figure align="right">
+      <img src="img/player.png">
+      <figcaption><font size="1">画像元：http://www.jp.playstation.com/software/minecraft/</font></figcaption>
+    </figure>
+
+
+
+  </head>
+  <body>
+    <div class=margin>
+    <span class=h1><span class=large>①「拾得物」制限とは</span></span><br>
+    ・プレイ環境はMinecraft 1.12.2 (バニラ)を想定。<br>
+    ・プレイヤーが<span class=large>「拾う」</span>ことで入手できるアイテムの種類に制限を設ける。<br>
+    ・拾えるアイテムの種類はワールド作成時に約400種類のアイテム中から決める。<br>
+    ・拾えるアイテムの種類は抽選でランダムに選ばれた9種類＋任意の1種類の計10種類とする。<br>
+
+    <br>
+    <br>
+
+    <span class=h1><span class=large>②「拾う」以外の方法で入手することは自由とする</span></span><br>
+    ・クラフトによる入手。<br>
+    ・村人との取引による入手。<br>
+    ・内部インベントリを持つブロックおよびアイテムからの入手。<br>
+      <details>
+        <summary><span class="small">[内部インベントリを持つブロックおよびアイテム一覧]</span></summary>
+        <div class="small">
+        <table border="1">
+          <tr>
+            <td>チェスト</td>
+            <td>トラップチェスト</td>
+            <td>エンダーチェスト</td>
+            <td>チェスト付きトロッコ</td>
+            <td>作業台</td>
+          </tr>
+          <tr>
+            <td>ホッパー</td>
+            <td>ホッパー付きトロッコ</td>
+            <td>各色シュルカーボックス</td>
+            <td>かまど(燃焼中を含む)</td>
+            <td>かまど付きトロッコ(燃焼中を含む)</td>
+          </tr>
+          <tr>
+            <td>ドロッパー</td>
+            <td>ディスペンサー</td>
+            <td>エンチャントテーブル</td>
+            <td>醸造台</td>
+            <td></td>
+          </tr>
+        </table>
+      </div class="small">
+      </details>
+
+      <br>
+      <br>
+      <span class=h1><span class=large>③その他ルール</span></span><br>
+      ・耐久値を持ったツールは耐久値によらず同じアイテムと見なす。<br>
+      ・拾うことが認められてないアイテムを拾ってしまった場合は、速やかに捨てること。<br>
+
+  <br>
+
+  </div>
+    <div class=center>
+      <button class="button3" type="submit" onClick="jump2()">アイテム抽選</button>
+      <Hr>
+      <span class=large id="item">あなたが拾えるアイテム</span>
+    </div class=center>
+  <div id="table" align="center"></div>
+
+  </body>
+</div class=main>
+</html>
