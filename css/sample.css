@@ -42,11 +42,11 @@ div.margin{
 	font-size: 150%;
 }
 
-.box29 {
+div.box29 {
     margin: 2em 0;
     background: #F8E6E0;
 }
-.box29 .box-title {
+div.box29 div.box-title {
     font-size: 1.2em;
     background: #61210B;
     padding: 4px;
@@ -55,7 +55,7 @@ div.margin{
     font-weight: bold;
     letter-spacing: 0.05em;
 }
-.box29 p {
+div.box29 p {
 		font-family: serif;
     padding: 15px 20px;
     margin: 0;
