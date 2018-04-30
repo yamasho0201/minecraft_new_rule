@@ -2,6 +2,7 @@ span.normal {font-weight: normal; }
 span.large {font-size: 200%; }
 span.big {font-size: 150%;}
 span.small {font-size: 80%;}
+span.mini {font-size: 50%;}
 div.small {
 	text-align: center;
 	align-items: center;
@@ -37,16 +38,27 @@ div.main {
 
 div.margin{
 	margin-left: 80px;
+	margin-right: 80px;
 	font-size: 150%;
 }
 
-div.blocka {
-   float: left;
-   width: 30%;
+.box29 {
+    margin: 2em 0;
+    background: #F8E6E0;
 }
-div.blockb {
-   float: left;
-   width: 30%;
+.box29 .box-title {
+    font-size: 1.2em;
+    background: #61210B;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.box29 p {
+		font-family: serif;
+    padding: 15px 20px;
+    margin: 0;
 }
 
 div.center{
@@ -61,6 +73,15 @@ button.button3 {
     color: #fff;
     border-style: none;
 }
+button.button2 {
+    font-size: 1.4em;
+    font-weight: bold;
+    padding: 10px 30px;
+    background-color: #333;
+    color: #fff;
+    border-style: none;
+}
+
 
 span.h1 {
 	border-bottom: solid 3px brown;

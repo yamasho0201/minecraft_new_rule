@@ -1,4 +1,6 @@
 
+var flag = true;
+
 function jump(){
   location.href='index.html'
 }
@@ -7,6 +9,9 @@ function jump2(){
   window.location.reload();
 }
 
+function jump3(){
+  flag = true;
+}
 
 function randomIndex(n){
     var i, j, tmp, a = new Array(n);
@@ -58,9 +63,9 @@ function makeTableImg(data, tableId){
     // 表の作成開始
     var rows=[];
     var table = document.createElement("table");
-
+    var n_choice = n_c.n_choice.value;
     // 表に2次元配列の要素を格納
-    for(i = 0; i < data.length; i++){
+    for(i = 0; i <= n_choice; i++){
         rows.push(table.insertRow(-1));  // 行の追加
         for(j = 0; j < data[0].length; j++){
             cell=rows[i].insertCell(-1);
@@ -69,8 +74,8 @@ function makeTableImg(data, tableId){
               img.src = data[i][j];
               img.alt = "";
               img.name = "myFormImg";
-              img.width = 25;
-              img.height = 25;
+              img.width = 35;
+              img.height = 35;
               cell.appendChild(img)
             }else{
               cell.appendChild(document.createTextNode(data[i][j]));
@@ -88,19 +93,64 @@ function makeTableImg(data, tableId){
 }
 
 
-window.onload = function(){
-var data = [["","アイコン","アイテム名","ID","備考"],
-[1, item_icon[ID[0]], item_name[ID[0]],item_id[ID[0]],bikou[ID[0]]],
-[2, item_icon[ID[1]], item_name[ID[1]],item_id[ID[1]],bikou[ID[1]]],
-[3, item_icon[ID[2]], item_name[ID[2]],item_id[ID[2]],bikou[ID[2]]],
-[4, item_icon[ID[3]], item_name[ID[3]],item_id[ID[3]],bikou[ID[3]]],
-[5, item_icon[ID[4]], item_name[ID[4]],item_id[ID[4]],bikou[ID[4]]],
-[6, item_icon[ID[5]], item_name[ID[5]],item_id[ID[5]],bikou[ID[5]]],
-[7, item_icon[ID[6]], item_name[ID[6]],item_id[ID[6]],bikou[ID[6]]],
-[8, item_icon[ID[7]], item_name[ID[7]],item_id[ID[7]],bikou[ID[7]]],
-[9, item_icon[ID[8]], item_name[ID[8]],item_id[ID[8]],bikou[ID[8]]]];
+//window.onload = function(){
 
-makeTableImg(data, "table");
+function tablemake(){
+  //丸石 3
+  //原木 11,299-303
+  //鉄鉱石 9
+  var logs = [11, 299, 300, 301, 302, 303]
+
+  ID = randomIndex(item_id.length)
+
+  log_ID = randomIndex(logs.length)
+
+  if(difficulty.level.value == 'v_easy'){
+    ID[0] = logs[log_ID[0]];
+    ID[1] = 3;
+    ID[2] = 9;
+  }else if (difficulty.level.value == 'easy') {
+    ID[0] = logs[log_ID[0]];
+    ID[1] = 3;
+  }else if (difficulty.level.value == 'normal') {
+    ID[0] = logs[log_ID[0]];
+  }
+
+  var data = [["","アイコン","アイテム名","ID(一例)","備考"],
+  [1, item_icon[ID[0]], item_name[ID[0]],item_id[ID[0]],bikou[ID[0]]],
+  [2, item_icon[ID[1]], item_name[ID[1]],item_id[ID[1]],bikou[ID[1]]],
+  [3, item_icon[ID[2]], item_name[ID[2]],item_id[ID[2]],bikou[ID[2]]],
+  [4, item_icon[ID[3]], item_name[ID[3]],item_id[ID[3]],bikou[ID[3]]],
+  [5, item_icon[ID[4]], item_name[ID[4]],item_id[ID[4]],bikou[ID[4]]],
+  [6, item_icon[ID[5]], item_name[ID[5]],item_id[ID[5]],bikou[ID[5]]],
+  [7, item_icon[ID[6]], item_name[ID[6]],item_id[ID[6]],bikou[ID[6]]],
+  [8, item_icon[ID[7]], item_name[ID[7]],item_id[ID[7]],bikou[ID[7]]],
+  [9, item_icon[ID[8]], item_name[ID[8]],item_id[ID[8]],bikou[ID[8]]],
+  [10, item_icon[ID[9]], item_name[ID[9]],item_id[ID[9]],bikou[ID[9]]],
+  [11, item_icon[ID[10]], item_name[ID[10]],item_id[ID[10]],bikou[ID[10]]],
+  [12, item_icon[ID[11]], item_name[ID[11]],item_id[ID[11]],bikou[ID[11]]],
+  [13, item_icon[ID[12]], item_name[ID[12]],item_id[ID[12]],bikou[ID[12]]],
+  [14, item_icon[ID[13]], item_name[ID[13]],item_id[ID[13]],bikou[ID[13]]],
+  [15, item_icon[ID[14]], item_name[ID[14]],item_id[ID[14]],bikou[ID[14]]],
+  [16, item_icon[ID[15]], item_name[ID[15]],item_id[ID[15]],bikou[ID[15]]],
+  [17, item_icon[ID[16]], item_name[ID[16]],item_id[ID[16]],bikou[ID[16]]],
+  [18, item_icon[ID[17]], item_name[ID[17]],item_id[ID[17]],bikou[ID[17]]],
+  [19, item_icon[ID[18]], item_name[ID[18]],item_id[ID[18]],bikou[ID[18]]],
+  [20, item_icon[ID[19]], item_name[ID[19]],item_id[ID[19]],bikou[ID[19]]],
+  [21, item_icon[ID[20]], item_name[ID[20]],item_id[ID[20]],bikou[ID[20]]],
+  [22, item_icon[ID[21]], item_name[ID[21]],item_id[ID[21]],bikou[ID[21]]],
+  [23, item_icon[ID[22]], item_name[ID[22]],item_id[ID[22]],bikou[ID[22]]],
+  [24, item_icon[ID[23]], item_name[ID[23]],item_id[ID[23]],bikou[ID[23]]],
+  [25, item_icon[ID[24]], item_name[ID[24]],item_id[ID[24]],bikou[ID[24]]],
+  [26, item_icon[ID[25]], item_name[ID[25]],item_id[ID[25]],bikou[ID[25]]],
+  [27, item_icon[ID[26]], item_name[ID[26]],item_id[ID[26]],bikou[ID[26]]],
+  [28, item_icon[ID[27]], item_name[ID[27]],item_id[ID[27]],bikou[ID[27]]],
+  [29, item_icon[ID[28]], item_name[ID[28]],item_id[ID[28]],bikou[ID[28]]],
+  [30, item_icon[ID[29]], item_name[ID[29]],item_id[ID[29]],bikou[ID[29]]]];
+  if(flag){
+    makeTableImg(data, "table");
+  }
+  flag = false;
 }
 
 item_name[0] = '石';
@@ -119,10 +169,10 @@ item_name[3] = '丸石';
 item_id[3] = 'minecraft:cobblestone';
 item_icon[3] = 'https://lh3.googleusercontent.com/-k-0dGaZoZ54/WW9QxcSDf4I/AAAAAAAAGKo/AH5eimXi21oQ2R0VL58fmu7GcFDhmJjGgCE0YBhgL/s1024/cobblestone.png';
 bikou[3] = 'x';
-item_name[4] = '木材';
+item_name[4] = 'オークの木材';
 item_id[4] = 'minecraft:planks';
 item_icon[4] = 'https://lh3.googleusercontent.com/-2Wjx0Cx3GD8/Wa97gFob8cI/AAAAAAAAGpQ/gz5NfYpasjgwSUMYP6DWgeLsdG3aiKDbQCE0YBhgL/s1024/double_stone_slab-2.png';
-bikou[4] = '各種(オーク/マツ等)を含む';
+bikou[4] = 'x';
 item_name[5] = '苗木';
 item_id[5] = 'minecraft:sapling';
 item_icon[5] = 'https://lh3.googleusercontent.com/-8hKrTHGrSMI/Wa97gFF2j8I/AAAAAAAAGpI/EZH0QZm4LMAnOVCat8LOvNxetJrgQ89bQCE0YBhgL/s1024/sapling.png';
@@ -147,10 +197,10 @@ item_name[10] = '石炭鉱石';
 item_id[10] = 'minecraft:coal_ore';
 item_icon[10] = 'https://lh3.googleusercontent.com/-krcnZIkLDww/WYM72XJ6eWI/AAAAAAAAGUc/J2xiuJEzQiUNRKCpIPh2aSegpnFZC430wCE0YBhgL/s1024/coal_ore.png';
 bikou[10] = 'x';
-item_name[11] = '原木';
+item_name[11] = 'オークの原木';
 item_id[11] = 'minecraft:log';
 item_icon[11] = 'https://lh3.googleusercontent.com/-Y36r15CxxEg/Wa97gG6G_RI/AAAAAAAAGpI/10q2YdNj13g86NSmAd06dwMJQS-rb_-kACE0YBhgL/s1024/log.png';
-bikou[11] = '各種(オーク/マツ等)を含む';
+bikou[11] = 'x';
 item_name[12] = '葉';
 item_id[12] = 'minecraft:leaves';
 item_icon[12] = 'https://lh3.googleusercontent.com/-2sXtZNAxKLQ/Wa97gFyI-OI/AAAAAAAAGpI/UmkYV0S-vpEcYtobw0oE2vdPoTX7dZ2IQCE0YBhgL/s1024/leaves.png';
@@ -173,7 +223,7 @@ item_icon[16] = 'https://lh3.googleusercontent.com/-MJ-vDj6qCVQ/WYM72SSeCMI/AAAA
 bikou[16] = 'x';
 item_name[17] = 'ディスペンサー';
 item_id[17] = 'minecraft:dispenser';
-item_icon[17] = 'https://lh3.googleusercontent.com/-by66Iw9Cx0k/WYmcjTz_RwI/AAAAAAAAGZA/asIfFMAuet4682l7rgS9Z1DUr7smKDfHACE0YBhgL/s1024/dropper.png';
+item_icon[17] = 'https://lh3.googleusercontent.com/-0MBUfbuzybo/WYmcjVez_6I/AAAAAAAAGZA/-EKRDP0yYn0zGLDgo5Awvju7GTgkjvYbQCE0YBhgL/s1024/dispenser.png';
 bikou[17] = 'x';
 item_name[18] = '砂岩';
 item_id[18] = 'minecraft:sandstone';
@@ -239,7 +289,7 @@ item_name[33] = '鉄ブロック';
 item_id[33] = 'minecraft:iron_block';
 item_icon[33] = 'https://lh3.googleusercontent.com/-XJECvK6hkEU/WYmb-ZO6EqI/AAAAAAAAGYM/crbb5BgtY_0R7nbVG7pKPp8UVTKr94uEwCE0YBhgL/s1024/iron_block.png';
 bikou[33] = 'x';
-item_name[34] = '石ハーフブロック';
+item_name[34] = 'ハーフブロック';
 item_id[34] = 'minecraft:stone_slab';
 item_icon[34] = 'https://lh3.googleusercontent.com/-ujVg_VeQQLI/WZWwlZTZtYI/AAAAAAAAGbY/-t3unVqkE6w-YJaEbUiKm5w2vnRhZGmiQCE0YBhgL/s1024/stone_slab.png';
 bikou[34] = '各種ハーフブロック含む';
@@ -267,18 +317,18 @@ item_name[40] = '松明';
 item_id[40] = 'minecraft:torch';
 item_icon[40] = 'https://lh3.googleusercontent.com/-T6SSp3FHpKU/WWNxgvY8WTI/AAAAAAAAGCA/dMm_IvuVavI8Qx6YDKIYUu3JJSB7iX9KwCE0YBhgL/s1024/torch.png';
 bikou[40] = 'x';
-item_name[41] = '炎';
-item_id[41] = 'minecraft:fire';
-item_icon[41] = 'https://lh3.googleusercontent.com/-nS2D4UqElRU/WZacy7Ja0kI/AAAAAAAAGc4/MznzeVLXC_cTrC5FzZs5KG3UOTxuRxySwCE0YBhgL/s1024/Fire.png';
+item_name[41] = '不死のトーテム';
+item_id[41] = 'minecraft:totem_of_undying';
+item_icon[41] = 'https://lh3.googleusercontent.com/-Jm9ta1aPad4/WZ0cE_R_UmI/AAAAAAAAGeg/MAlmdFGf0Ec-4oOqjCgIgQ609PNCJ2bBQCE0YBhgL/s1024/totem_of_undying.png';
 bikou[41] = 'x';
 item_name[42] = 'レコード';
 item_id[42] = 'minecraft:record_13';
 item_icon[42] = 'https://lh3.googleusercontent.com/-euTWittJeCs/WbZLTNOmmuI/AAAAAAAAGtE/uC0f1nsDuigUjrSz2b313CxvgYkVeWQhwCE0YBhgL/s1024/record_13.png';
 bikou[42] = '各種レコードを含む';
-item_name[43] = 'オークの木の階段';
+item_name[43] = '階段ブロック';
 item_id[43] = 'minecraft:oak_stairs';
 item_icon[43] = 'https://lh3.googleusercontent.com/-3NC0ThPTSYk/Wa97gdWCApI/AAAAAAAAGpI/dtFoy6nsUBg0l3lVGAxrb3-DwI9LuXeqwCE0YBhgL/s1024/oak_stairs.png';
-bikou[43] = '各種階段含む';
+bikou[43] = '各種階段ブロック含む';
 item_name[44] = 'チェスト';
 item_id[44] = 'minecraft:chest';
 item_icon[44] = 'https://lh3.googleusercontent.com/-ZbEsJkUaFEM/WWNxgn39mlI/AAAAAAAAGCA/d0aMBTdVa9MOwSjkyr2qUuQC5QdxfLuFgCE0YBhgL/s1024/chest.png';
@@ -310,7 +360,7 @@ bikou[50] = 'x';
 item_name[51] = '木のドア';
 item_id[51] = 'minecraft:wooden_door';
 item_icon[51] = 'https://lh3.googleusercontent.com/-cnrHIwvZh_c/Wa97gNfH51I/AAAAAAAAGpI/qf8ualC6Bb0C9G9xayDzLNtsy_QxrxVwACE0YBhgL/s1024/wooden_door.png';
-bikou[51] = '各種(オーク/マツ等)を含む';
+bikou[51] = '各種木材(オーク/マツ等)を含む';
 item_name[52] = 'はしご';
 item_id[52] = 'minecraft:ladder';
 item_icon[52] = 'https://lh3.googleusercontent.com/-F2PokSubC0I/WbZLTGbb6RI/AAAAAAAAGtE/VRPBHdvEDBAt2HJ7MzlHdC1zUHo8djBCgCE0YBhgL/s1024/ladder.png';
@@ -323,26 +373,26 @@ item_name[54] = 'レバー';
 item_id[54] = 'minecraft:lever';
 item_icon[54] = 'https://lh3.googleusercontent.com/-mWsSy2J-YLY/WYmcjdokKBI/AAAAAAAAGZA/vKMjEg80Wh0UEBZ7rNajAoqQI9Ajm3QVgCE0YBhgL/s1024/lever.png';
 bikou[54] = 'x';
-item_name[55] = '石の感圧板';
+item_name[55] = '感圧板';
 item_id[55] = 'minecraft:stone_pressure_plate';
 item_icon[55] = 'https://lh3.googleusercontent.com/-8LLibyqDkEA/WYmcjW3ZlqI/AAAAAAAAGZM/O5uzFBGwrfotBD-bxCJayoiYZLg2CYTQgCE0YBhgL/s1024/stone_pressure_plate.png';
-bikou[55] = '各種感圧版含む';
+bikou[55] = '各種感圧板含む';
 item_name[56] = 'レッドストーン鉱石';
 item_id[56] = 'minecraft:redstone_ore';
 item_icon[56] = 'https://lh3.googleusercontent.com/-94wyKojnEK8/WYM_ZxD887I/AAAAAAAAGUs/qYcZdchU4kQPYyaETm_qgk5cPX0VaUVsACE0YBhgL/s1024/redstone_ore.png';
 bikou[56] = 'x';
-item_name[57] = '光るレッドストーン鉱石';
-item_id[57] = 'minecraft:lit_redstone_ore';
-item_icon[57] = 'https://lh3.googleusercontent.com/-d5mAY5sr9uk/WYNAPgqJjkI/AAAAAAAAGU4/ar39v9Q70Z0bQLi1gzrk5JBWs5W9TJYmwCE0YBhgL/s1024/lit_redstone_ore-64.png';
+item_name[57] = '盾';
+item_id[57] = 'minecraft:shield';
+item_icon[57] = 'https://lh3.googleusercontent.com/-9UpB8O5FWmY/WZ0cE-ciddI/AAAAAAAAGeg/ZcWgtpC3YFw__85Nx8smeDynJ2iKpop3gCE0YBhgL/s1024/shield.png';
 bikou[57] = 'x';
 item_name[58] = 'レッドストーントーチ';
 item_id[58] = 'minecraft:unlit_redstone_torch';
 item_icon[58] = 'https://lh3.googleusercontent.com/-1rQDJuEGmxc/WYmcjcJ_01I/AAAAAAAAGZM/02qgTqYyBL8nXmJLgSqACYijPtQVqEyaACE0YBhgL/s1024/unlit_redstone_torch.png';
 bikou[58] = 'x';
-item_name[59] = '石のボタン';
+item_name[59] = 'ボタン';
 item_id[59] = 'minecraft:stone_button';
 item_icon[59] = 'https://lh3.googleusercontent.com/-xODvt5WHJ6Y/WYmcjTVO_qI/AAAAAAAAGZM/ufwcmkXAsJsiojt60OwOpdDdcdlXWnWUgCE0YBhgL/s1024/stone_button.png';
-bikou[59] = '各種ボタン含む';
+bikou[59] = '木のボタン/石のボタンを含む';
 item_name[60] = '雪';
 item_id[60] = 'minecraft:snow_layer';
 item_icon[60] = 'https://lh3.googleusercontent.com/-dc_mNZtXfQk/WZW1bkr06pI/AAAAAAAAGb0/dgMxlwEpZP0zaS8GnOjQMtfHeWdFZy3LgCE0YBhgL/s1024/snow_layer.png';
@@ -411,9 +461,9 @@ item_name[76] = 'トラップドア';
 item_id[76] = 'minecraft:trapdoor';
 item_icon[76] = 'https://lh3.googleusercontent.com/-VdispHPxQpY/WYmcjRTAr-I/AAAAAAAAGZM/2coh8PfpM9wRG3ZlLjwGD3bDoanxdr91ACE0YBhgL/s1024/trapdoor.png';
 bikou[76] = '鉄のトラップドアを含む';
-item_name[77] = 'シルバーフィッシュ入りのブロック';
-item_id[77] = 'minecraft:monster_egg';
-item_icon[77] = 'https://lh3.googleusercontent.com/-XXzC-yUIx6g/WZWwlWSysMI/AAAAAAAAGbY/WZrH20duuDUMwqLtjdNH_LHD2ym8zNwLQCE0YBhgL/s1024/monster_egg.png';
+item_name[77] = 'エリトラ';
+item_id[77] = 'minecraft:elytra';
+item_icon[77] = 'https://lh3.googleusercontent.com/-XvqBKsomWW0/WZ0cE-4ZwkI/AAAAAAAAGeg/RASKRnAFyDEaKE8xcYdeAgvgEh_3APPowCE0YBhgL/s1024/elytra.png';
 bikou[77] = 'x';
 item_name[78] = '石レンガ';
 item_id[78] = 'minecraft:stonebrick';
@@ -553,7 +603,7 @@ item_icon[111] = 'https://lh3.googleusercontent.com/-tj8xJzdXIMM/WakLV9HbpCI/AAA
 bikou[111] = 'x';
 item_name[112] = 'ドロッパー';
 item_id[112] = 'minecraft:dropper';
-item_icon[112] = 'https://lh3.googleusercontent.com/-0MBUfbuzybo/WYmcjVez_6I/AAAAAAAAGZA/-EKRDP0yYn0zGLDgo5Awvju7GTgkjvYbQCE0YBhgL/s1024/dispenser.png';
+item_icon[112] = 'https://lh3.googleusercontent.com/-by66Iw9Cx0k/WYmcjTz_RwI/AAAAAAAAGZA/asIfFMAuet4682l7rgS9Z1DUr7smKDfHACE0YBhgL/s1024/dropper.png';
 bikou[112] = 'x';
 item_name[113] = '色付きガラス板';
 item_id[113] = 'minecraft:stained_glass_pane';
@@ -631,11 +681,11 @@ item_name[131] = 'オブザーバー';
 item_id[131] = 'minecraft:observer';
 item_icon[131] = 'https://lh3.googleusercontent.com/-XwSSYFNJYVg/WYmcjZ9oksI/AAAAAAAAGZM/1VBVyBVWDK4GJfj9YF1EO_H8tG-2cVmPwCE0YBhgL/s1024/observer.png';
 bikou[131] = 'x';
-item_name[132] = '白色のシュルカーボックス';
+item_name[132] = 'シュルカーボックス';
 item_id[132] = 'minecraft:white_shulker_box';
 item_icon[132] = 'https://lh3.googleusercontent.com/-TYkrzd9U6mU/WWNslXSmvUI/AAAAAAAAGBM/gUKMTGSPsxEXHbgYN49YsfrsH4v5q3uCACE0YBhgL/s1024/white_shulker_box.png';
 bikou[132] = '各色を含む';
-item_name[133] = '白色の彩釉テラコッタ';
+item_name[133] = '彩釉テラコッタ';
 item_id[133] = 'minecraft:white_glazed_terracotta';
 item_icon[133] = 'https://lh3.googleusercontent.com/-A_yWn4gQzNw/WTndHoAfb5I/AAAAAAAAFrw/frT92Xak-hcvgUWGRsgBhhkt_g63lJC8gCE0/s1024/white_glazed_terracotta-0.png';
 bikou[133] = '各色を含む';
@@ -649,16 +699,16 @@ item_icon[135] = 'https://lh3.googleusercontent.com/-OTLfIRpZvCY/WTjjrUvzm8I/AAA
 bikou[135] = '各色を含む';
 item_name[136] = 'ビーコン';
 item_id[136] = 'minecraft:beacon';
-item_icon[136] = 'https://lh3.googleusercontent.com/-I49O89EFB1U/WWNxgpwXAPI/AAAAAAAAGCA/Sy3YZ1Q3K5I8Fjd8Up1O0MNT7bz27NYNACE0YBhgL/s1024/beacon.png';
+item_icon[136] = 'https://n5v.net/img/64w/e001.png';
 bikou[136] = 'x';
-item_name[137] = 'テラコッタ';
+item_name[137] = 'テラコッタ(色付き粘土)';
 item_id[137] = 'minecraft:hardened_clay';
 item_icon[137] = 'https://lh3.googleusercontent.com/-IIsE4Tq73Lc/WWBoGCAhgDI/AAAAAAAAF_Y/DzDI0BBU4VwL1dc7n7pntXnKsvHn31hPwCE0YBhgL/s1024/hardened_clay.png';
 bikou[137] = '各色テラコッタを含む';
-item_name[138] = '色付き粘土';
-item_id[138] = 'minecraft:stained_hardened_clay';
-item_icon[138] = 'https://lh3.googleusercontent.com/--fssJt-iDVg/WTjh6yufsFI/AAAAAAAAFoc/U4ATSHT1EV4mlKyvNYF4cKAPuq0oKIuewCE0/s1024/stained_hardened_clay-0.png';
-bikou[138] = '各色を含む';
+item_name[138] = 'シュルカーの殻';
+item_id[138] = 'minecraft:shulker_shell';
+item_icon[138] = 'https://lh3.googleusercontent.com/-Q20rMH33Owo/WcDIvq6zHpI/AAAAAAAAGxM/E-rIxBgrjcIHitV5a0qf_xL5vHIjydOjwCE0YBhgL/s1024/shulker_shell.png';
+bikou[138] = 'x';
 item_name[139] = '鉄のシャベル';
 item_id[139] = 'minecraft:iron_shovel';
 item_icon[139] = 'https://lh3.googleusercontent.com/-kuTmW218kBc/WWS7gi8nNCI/AAAAAAAAGF4/UV1bY4qa0Zcua3K0PBkm9H2rCBM8S4EUwCE0YBhgL/s1024/iron_shovel.png';
@@ -1295,23 +1345,43 @@ item_name[297] = '残留ポーション';
 item_id[297] = 'minecraft:lingering_potion';
 item_icon[297] = 'https://lh3.googleusercontent.com/-2HFNczyah8E/WcDI2JdUFgI/AAAAAAAAGxM/-hg79NHb3foqn4SBxwM-wrcatcH_7ZCaQCE0YBhgL/s1024/lingering_potion.png';
 bikou[297] = '各種残留ポーションを含む';
-item_name[298] = '盾';
-item_id[298] = 'minecraft:shield';
-item_icon[298] = 'https://lh3.googleusercontent.com/-9UpB8O5FWmY/WZ0cE-ciddI/AAAAAAAAGeg/ZcWgtpC3YFw__85Nx8smeDynJ2iKpop3gCE0YBhgL/s1024/shield.png';
+item_name[298] = 'アカシアの木材';
+item_id[298] = 'minecraft:planks';
+item_icon[298] = 'https://lh3.googleusercontent.com/-ENZYfnpP44c/Wa97ge5TosI/AAAAAAAAGpI/Gw1YS3M69A4Wqd4Jj8kXlqKHz3NYtZdpgCE0YBhgL/s1024/planks-4.png'
 bikou[298] = 'x';
-item_name[299] = 'エリトラ';
-item_id[299] = 'minecraft:elytra';
-item_icon[299] = 'https://lh3.googleusercontent.com/-XvqBKsomWW0/WZ0cE-4ZwkI/AAAAAAAAGeg/RASKRnAFyDEaKE8xcYdeAgvgEh_3APPowCE0YBhgL/s1024/elytra.png';
+item_name[299] = 'アカシアの原木';
+item_id[299] = 'minecraft:log';
+item_icon[299] = 'https://lh3.googleusercontent.com/-iT5C4mny4hU/Wa97gP2U_cI/AAAAAAAAGpI/GDagOL5FnP8fow2WuaKrfBXFbGq361nfQCE0YBhgL/s1024/log2.png'
 bikou[299] = 'x';
-item_name[300] = '不死のトーテム';
-item_id[300] = 'minecraft:totem_of_undying';
-item_icon[300] = 'https://lh3.googleusercontent.com/-Jm9ta1aPad4/WZ0cE_R_UmI/AAAAAAAAGeg/MAlmdFGf0Ec-4oOqjCgIgQ609PNCJ2bBQCE0YBhgL/s1024/totem_of_undying.png';
+item_name[300] = 'マツの原木';
+item_id[300] = 'minecraft:log';
+item_icon[300] = 'https://lh3.googleusercontent.com/-w3s8NxSsz2U/Wa97gONXQ9I/AAAAAAAAGpI/gldsY-3G8e0OUlz6Z91pdJpdtum7y_aUQCE0YBhgL/s1024/log-1.png';
 bikou[300] = 'x';
-item_name[301] = 'シュルカーの殻';
-item_id[301] = 'minecraft:shulker_shell';
-item_icon[301] = 'https://lh3.googleusercontent.com/-Q20rMH33Owo/WcDIvq6zHpI/AAAAAAAAGxM/E-rIxBgrjcIHitV5a0qf_xL5vHIjydOjwCE0YBhgL/s1024/shulker_shell.png';
+item_name[301] = 'シラカバの原木';
+item_id[301] = 'minecraft:log';
+item_icon[301] = 'https://lh3.googleusercontent.com/-7dF9wkXzi_o/Wa97gHo1OxI/AAAAAAAAGpI/hcy7m51aKWkVP9_EsP7x6Im8QL_SqzWYwCE0YBhgL/s1024/log-2.png'
 bikou[301] = 'x';
-
-
-
-ID = randomIndex(item_id.length)
+item_name[302] = 'ジャングルの原木';
+item_id[302] = 'minecraft:log';
+item_icon[302] = 'https://lh3.googleusercontent.com/-diTDDebPRDU/Wa97gIfgyYI/AAAAAAAAGpI/vr60FaJgLj8re4yD1f74Coc9rxtvhGVogCE0YBhgL/s1024/log-3.png'
+bikou[302] = 'x';
+item_name[303] = 'ダークオークの原木';
+item_id[303] = 'minecraft:log';
+item_icon[303] = 'https://lh3.googleusercontent.com/-GY0U7aRFbG0/Wa97gEDOjZI/AAAAAAAAGpI/W2hWUfdLhHYw5XhATLfTpEMLLlBYLDhhQCE0YBhgL/s1024/log2-1.png'
+bikou[303] = 'x';
+item_name[304] = 'マツの木材';
+item_id[304] = 'minecraft:planks';
+item_icon[304] = 'https://lh3.googleusercontent.com/-tp_fmZ7qQd8/Wa97gcOBWmI/AAAAAAAAGpI/2II7XqeKX2wGmBuACxxASbQbtlWvdhGEwCE0YBhgL/s1024/planks-1.png'
+bikou[304] = 'x';
+item_name[305] = 'シラカバの木材';
+item_id[305] = 'minecraft:planks';
+item_icon[305] = 'https://lh3.googleusercontent.com/-GAPxGCJKfbg/Wa97gUPAdrI/AAAAAAAAGpI/kUYIILlBhDgnOTf42C3xa5n_i12mRBaLgCE0YBhgL/s1024/planks-2.png'
+bikou[305] = 'x';
+item_name[306] = 'ジャングルの木材';
+item_id[306] = 'minecraft:planks';
+item_icon[306] = 'https://lh3.googleusercontent.com/-cjjwoJkU8FU/Wa97gTXu9nI/AAAAAAAAGpI/f1YYH6ffng4-ANeQzy3VUGZdJYeELeUowCE0YBhgL/s1024/planks-3.png'
+bikou[306] = 'x';
+item_name[307] = 'ダークオークの木材';
+item_id[307] = 'minecraft:planks';
+item_icon[307] = 'https://lh3.googleusercontent.com/-3EOByZCRCKg/Wa97gNb8XLI/AAAAAAAAGpI/enDNKDceDgk5F67TQ3G5de_aOXS96wt_QCE0YBhgL/s1024/planks-5.png'
+bikou[307] = 'x';
