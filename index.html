@@ -69,14 +69,15 @@
     <div class=center>
       <Hr>
         <form name='difficulty'>
-          <input type="radio" name="level" value="v_easy">Very Easy(原木/丸石/鉄鉱石 が確定)
-          <input type="radio" name="level" value="easy">Easy(原木/丸石 が確定)
-          <input type="radio" name="level" value="normal" checked>Normal(原木 が確定)
-          <input type="radio" name="level" value="hard">Hard(運次第)
+          <select name="level">
+            <option value="v_easy">Very Easy(原木/丸石/鉄鉱石 が確定)</option>
+            <option value="easy">Easy(原木/丸石 が確定)</option>
+            <option value="normal">Normal(原木 が確定)</option>
+            <option value="hard">Hard(運次第)</option>
+          </select>
         </form name="difficulty">
         <br>
-        <br>
-        <button class="button3" type="submit" onClick="tablemake()">アイテム抽選</button> <button class="button2" type="submit" onClick="jump2()">リセット</button><br>
+        <button class="button3" type="submit" onClick="tablemake()">アイテム抽選</button><br>
         <br>
         <form name='n_c'>抽選するアイテムの個数 : <input type="number" name="n_choice" value="10" max="30"></form>
         <br>
