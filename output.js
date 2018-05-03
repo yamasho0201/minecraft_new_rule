@@ -1,5 +1,6 @@
 
 document.write("<script type='text/javascript' src='variable.js'></script>");
+document.write("<script type='text/javascript' src='bonus_variable.js'></script>");
 
 var flag = true;
 
@@ -76,6 +77,39 @@ function makeTableImg(data, tableId){
     document.getElementById(tableId).appendChild(table);
 }
 
+function makeTableImgBonus(data, tableId){
+    // 表の作成開始
+    var rows=[];
+    var table = document.createElement("table");
+
+    // 表に2次元配列の要素を格納
+    for(i = 0; i <= 1; i++){
+        rows.push(table.insertRow(-1));  // 行の追加
+        for(j = 0; j < data[0].length; j++){
+            cell=rows[i].insertCell(-1);
+            if(i > 0 && j==1){
+              var img = document.createElement("img");
+              img.src = data[i][j];
+              img.alt = "";
+              img.name = "myFormImg";
+              img.width = 35;
+              img.height = 35;
+              cell.appendChild(img)
+            }else{
+              cell.appendChild(document.createTextNode(data[i][j]));
+            }
+            // 背景色の設定
+            if(i==0){
+                cell.style.backgroundColor = "#bbb"; // ヘッダ行
+            }else{
+                cell.style.backgroundColor = "#ddd"; // ヘッダ行以外
+            }
+        }
+    }
+    // 指定したdiv要素に表を加える
+    document.getElementById(tableId).appendChild(table);
+}
+
 
 function clearTbody(){
     var tbodies = document.getElementsByTagName("tbody");
@@ -86,27 +120,45 @@ function clearTbody(){
     }
 }
 
+function get_log_index(){
+  var oak       = item_name.indexOf('オークの原木');
+  var dark_oak  = item_name.indexOf('ダークオークの原木');
+  var akacia    = item_name.indexOf('アカシアの原木');
+  var matsu     = item_name.indexOf('マツの原木');
+  var jungle    = item_name.indexOf('ジャングルの原木');
+  var sirakaba  = item_name.indexOf('シラカバの原木');
+
+  var logs = [oak, dark_oak, akacia, matsu, jungle, sirakaba];
+
+  return logs;
+}
+
+function get_index(i_name){
+  var ind = item_name.indexOf(i_name);
+  return ind;
+}
 
 function tablemake(){
   //丸石 3
   //原木 11,299-303
   //鉄鉱石 9
-  var logs = [11, 299, 300, 301, 302, 303]
-
+  logs = get_log_index();
   ID = randomIndex(item_id.length)
-
   log_ID = randomIndex(logs.length)
+
+  cobblestone = get_index('丸石');
+  iron = get_index('鉄鉱石');
 
   var n_dif = document.difficulty.level.selectedIndex;
   var dif = document.difficulty.level.options[n_dif].value;
 
   if(dif == 'v_easy'){
     ID[0] = logs[log_ID[0]];
-    ID[1] = 3;
-    ID[2] = 9;
+    ID[1] = cobblestone;
+    ID[2] = iron;
   }else if (dif == 'easy') {
     ID[0] = logs[log_ID[0]];
-    ID[1] = 3;
+    ID[1] = cobblestone;
   }else if (dif == 'normal') {
     ID[0] = logs[log_ID[0]];
   }
@@ -145,6 +197,14 @@ function tablemake(){
   //if(flag){
   clearTbody();
   makeTableImg(data, "table");
+  bonustablemake();
   //}
-  flag = false;
+  //flag = false;
+}
+
+function bonustablemake(){
+  ID = randomIndex(b_item_id.length)
+  var data = [["","アイコン","アイテム名","ID","エンチャント","コマンド"],
+  [1, b_item_icon[ID[0]], b_item_name[ID[0]], b_item_id[ID[0]], b_enchant[ID[0]], b_command[ID[0]]]];
+  makeTableImgBonus(data, "bonustable");
 }

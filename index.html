@@ -68,23 +68,35 @@
   </div>
     <div class=center>
       <Hr>
+        <span class="large" id="item"><font face="arial black">YOUR ITEMS</font></span>
+        <br>
         <form name='difficulty'>
-          <select name="level">
+          難易度：<select name="level">
             <option value="v_easy">Very Easy(原木/丸石/鉄鉱石 が確定)</option>
             <option value="easy">Easy(原木/丸石 が確定)</option>
             <option value="normal">Normal(原木 が確定)</option>
             <option value="hard">Hard(運次第)</option>
           </select>
         </form name="difficulty">
-        <br>
-        <button class="button3" type="submit" onClick="tablemake()">アイテム抽選</button><br>
+
         <br>
         <form name='n_c'>抽選するアイテムの個数 : <input type="number" name="n_choice" value="10" max="30"></form>
         <br>
+
+        <button class="button3" type="submit" onClick="tablemake()">アイテム抽選</button><br>
       <Hr>
-      <span class=large id="item"><font face="arial black">YOUR ITEMS</font></span>
     </div class=center>
   <div id="table" align="center"></div>
+  <div class="center">
+    <br>
+    <Hr>
+      <span class=large id="item"><font face="arial black">BONUS ITEM (試験運用)</font></span>
+      <br>
+      <!-- <button class="button2" type="submit" onClick="bonustablemake()">ボーナス抽選</button><br> -->
+  <div id="bonustable" align="center"></div>
+
+
+  </div class="center">
 <h5 align="right">アイコン画像元：https://mine-craftlife.com/ </h5>
 
   </body>
